@@ -1,12 +1,13 @@
 // Code for circuitboard that is placed on the quadcopter (Arduino Nano) and is the "reciever"
 
 // Include libraries
-#include <Wire.h>
+
 #include "I2Cdev.h"
 #include "MPU6050_6Axis_MotionApps20.h"
 #include <SPI.h>
 #include <nRF24L01.h>
 #include <RF24.h>
+#include <Wire.h>
 
 // Defining motor pins
 #define Motor1Pin 3
@@ -60,7 +61,8 @@ void dmpDataReady() {
 }
 
 void setup() {
-  Serial.begin(115200); // Open serial port
+  Serial.begin(9600); // Open serial port
+  // Note: Baud rate at 115200 will make Serial fasterr but they will print out MPU slower than the joystick
 
   // Begin radio communication using nRF24L01
   radio.begin();
@@ -77,6 +79,7 @@ void setup() {
 #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
   Wire.begin();
   Wire.setClock(400000); // 400kHz I2C clock. Comment this line if having compilation difficulties
+  //Wire.setWireTimeout(3000, true); // VERY IMPORTANT!!! THIS FIXES THE I2C BUS FROM HANGING
 #elif I2CDEV_IMPLEMENTATION == I2CDEV_BUILTIN_FASTWIRE
   Fastwire::setup(400, true);
 #endif
@@ -154,7 +157,7 @@ void loop() {
     Serial.print("\t");
     Serial.print(ypr[1] * 180 / M_PI);
     Serial.print("\t");
-    Serial.println(ypr[2] * 180 / M_PI);
+    Serial.print(ypr[2] * 180 / M_PI);
   }
 
   // Check whether there is data to be received
@@ -170,7 +173,7 @@ void loop() {
     // For example: if a drone has a throttle up and we lose connection, it can keep flying until we reset the values
   }
   // Print the joystick data that is recieved in the Serial Monitor
-  Serial.print("j1PotX: ");
+  Serial.print("; j1PotX: ");
   Serial.print(data.j1PotX);
   Serial.print("; j1PotY: ");
   Serial.print(data.j1PotY);
@@ -190,10 +193,10 @@ void loop() {
   // Later on, changes will be made so that 1 axis controls the all motors in order to lift the quadcopter off the ground,
   // another axis will decide to make the quadcopter go forwards or backwards and adjust motor speeds accordingly, etc.
   // MPU code will also be more intergrated into this in order to balance the quadcopter and also make sure it doesn't tilt too much, etc.
-  analogWrite(Motor1Pin, j1PotX)
-  analogWrite(Motor2Pin, j1PotY)
-  analogWrite(Motor3Pin, j2PotX)
-  analogWrite(Motor4Pin, j2PotY)
+  analogWrite(Motor1Pin, data.j1PotX);
+  analogWrite(Motor2Pin, data.j1PotY);
+  analogWrite(Motor3Pin, data.j2PotX);
+  analogWrite(Motor4Pin, data.j2PotY);
 }
 void resetData() {
   // Reset the values when there is no radio connection

@@ -31,7 +31,8 @@ struct Data_Package {
 Data_Package data; //Create a variable with the above structure
 
 void setup() {
-  Serial.begin(115200); // Open serial port
+  Serial.begin(9600); // Open serial port
+  // Note: Baud rate at 115200 will make Serial fasterr but they will print out MPU slower than the joystick (in the transmitter)
 
   // Begin radio communication using nRF24L01
   radio.begin();
