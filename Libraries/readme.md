@@ -1,3 +1,3 @@
 # Libraries
 
-- Unzip both of these libraries and place in `\Documents\Arduino\libraries`
+- Unzip all libraries and place in `\Documents\Arduino\libraries`
