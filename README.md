@@ -1,14 +1,22 @@
 # MiniCopter
-A mini quadcopter
+A mini quadcopter made completely from scratch using an Arduino Nano, an MPU6050 for orientation sensing, an NRF24L01 for recieving signals, MOSFETs for driving the motors, and 8520 Motors. It is controlled using a custom transmitter that has 2 joysticks and an NRF24L01.
 
-## Links:
-- https://www.youtube.com/watch?v=Vep09UZsuiQ
-- https://www.instructables.com/Arduino-micro-Quadcopter/
-- https://www.youtube.com/watch?v=J0h2E532X3E
-- https://www.circuitmagic.com/arduino/run-small-brushed-motor-for-mini-quadcopter/
-### Parts:
-- https://www.amazon.ca/Upgraded-Connector-Battery-Inductrix-Eachine/dp/B07NWD5NTN/
-- https://www.amazon.ca/DaFuRui-8520-8-5x20mm-Coreless-53000Rpm/dp/B09XBBNNVR
-- https://www.amazon.ca/8-5x20mm-15000KV-Coreless-JST-1-25-Connector/dp/B07CFQMF1M
-- https://www.amazon.ca/Micro-Coreless-Motor-Aircraft-Electronic/dp/B098MX316D
-- https://www.amazon.ca/Fytoo-Propeller-Quadcopter-Blades-colors/dp/B07C7VST3T
+Programmed in `Arduino IDE`, models created in `Autodesk Inventor`, schematics created in `KiCad`.
+
+![ScanningGif](./Images/CopterPic5.jpg)
+
+More updates to come!
+
+## Schematics
+![ScanningGif](./MiniCopterSchematic/MiniCopterSchematic.svg)
+
+## Other Pictures
+Unassembled 3D-printed parts:
+![ScanningGif](./Images/CopterPic4.jpg)
+
+Custom made perfboard:
+![ScanningGif](./Images/CopterPic1.jpg)
+![ScanningGif](./Images/CopterPic2.jpg)
+
+Perfboard with motor wires soldered on (motor wires were initially meant to be connected using header pins on top of the board, but it was found that the end connectors of dupont wires had resistance and lowered the voltage going to the motors, thus wires had to be directly soldered on):
+![ScanningGif](./Images/CopterPic9.jpg)
