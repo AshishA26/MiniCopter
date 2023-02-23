@@ -1,5 +1,5 @@
 # MiniCopter
-A mini quadcopter made completely from scratch using an Arduino Nano, an MPU6050 for orientation sensing, an NRF24L01 for recieving signals, MOSFETs for driving the motors, and 8520 Motors. It is controlled using a custom transmitter that has 2 joysticks and an NRF24L01.
+A mini quadcopter made completely from scratch using an Arduino Nano, an MPU6050 for orientation sensing, an NRF24L01 for wireless communication, MOSFETs that act as motor drivers, and 8520 Motors. It also uses a PID control loop in order to fly with stability. It is controlled using a custom transmitter that has 2 joysticks and an NRF24L01.
 
 Programmed in `Arduino IDE`, models created in `Autodesk Inventor`, schematics created in `KiCad`.
 
