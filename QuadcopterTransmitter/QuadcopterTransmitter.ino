@@ -6,9 +6,12 @@
 #include <RF24.h>
 #include <Wire.h>
 
+volatile int switchOnMotors = 0;
+const byte interruptPin = 2;
+
 // Define the joystick inputs
-#define jB1 2  // Joystick button 1
-#define jB2 3  // Joystick button 2
+#define jB1 3  // Joystick button 1
+#define jB2 4  // Joystick button 2
 #define j1PotXPin A0 //Joystick 1 axis X
 #define j1PotYPin A1 //Joystick 1 axis Y
 #define j2PotXPin A2 //Joystick 2 axis X
@@ -30,6 +33,23 @@ struct Data_Package {
 };
 Data_Package data; //Create a variable with the above structure
 
+int buttonNew;
+int buttonOld = 1;
+
+void pushButton()
+{
+  buttonNew = digitalRead(interruptPin);
+  if (buttonOld == 0 && buttonNew == 1) {
+    if (switchOnMotors == 0) {
+      switchOnMotors = 1;
+    }
+    else {
+      switchOnMotors = 0;
+    }
+  }
+  buttonOld = buttonNew;
+}
+
 void setup() {
   Serial.begin(9600); // Open serial port
   // Note: Baud rate at 115200 will make Serial fasterr but they will print out MPU slower than the joystick (in the transmitter)
@@ -48,22 +68,32 @@ void setup() {
   // Set initial default values
   // Values are from 0 to 255. When Joystick is in resting position (middle), the value is 127.
   // The actual joystick gives 0 to 1023, but we map it to 0 to 255 in order to send one BYTE
-  data.j1PotX = 127;
-  data.j1PotY = 127;
-  data.j2PotX = 127;
-  data.j2PotY = 127;
+  data.j1PotX = 0;
+  data.j1PotY = 0;
+  data.j2PotX = 0;
+  data.j2PotY = 0;
   data.j1Button = 1;
   data.j2Button = 1;
+
+  pinMode(interruptPin, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(interruptPin), pushButton, CHANGE);
 }
 
 void loop() {
-
-  // Read all analog inputs and map them to one Byte value
-  // Convert the analog read value from 0 to 1023 into a BYTE value from 0 to 255
-  data.j1PotX = map(analogRead(j1PotXPin), 0, 1023, 0, 255);
-  data.j1PotY = map(analogRead(j1PotYPin), 0, 1023, 0, 255);
-  data.j2PotX = map(analogRead(j2PotXPin), 0, 1023, 0, 255);
-  data.j2PotY = map(analogRead(j2PotYPin), 0, 1023, 0, 255);
+  if (switchOnMotors == 1) {
+    // Read all analog inputs and map them to one Byte value
+    // Convert the analog read value from 0 to 1023 into a BYTE value from 0 to 255
+    data.j1PotX = map(analogRead(j1PotXPin), 0, 1023, 0, 255);
+    data.j1PotY = map(analogRead(j1PotYPin), 0, 1023, 0, 255);
+    data.j2PotX = map(analogRead(j2PotXPin), 0, 1023, 0, 255);
+    data.j2PotY = map(analogRead(j2PotYPin), 0, 1023, 0, 255);
+  }
+  else {
+    data.j1PotX = 0;
+    data.j1PotY = 0;
+    data.j2PotX = 0;
+    data.j2PotY = 0;
+  }
 
   // Read digital inputs
   data.j1Button = digitalRead(jB1);

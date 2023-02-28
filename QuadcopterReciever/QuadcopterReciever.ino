@@ -1,7 +1,6 @@
 // Code for circuitboard that is placed on the quadcopter (Arduino Nano) and is the "reciever"
 
 // Include libraries
-
 #include "I2Cdev.h"
 #include "MPU6050_6Axis_MotionApps20.h"
 #include <SPI.h>
@@ -139,7 +138,6 @@ void setup() {
     Serial.print(devStatus);
     Serial.println(F(")"));
   }
-  delay(10);
 }
 void loop() {
 
@@ -152,12 +150,12 @@ void loop() {
     mpu.dmpGetQuaternion(&q, fifoBuffer);
     mpu.dmpGetGravity(&gravity, &q);
     mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
-    Serial.print("ypr\t");
-    Serial.print(ypr[0] * 180 / M_PI);
-    Serial.print("\t");
-    Serial.print(ypr[1] * 180 / M_PI);
-    Serial.print("\t");
-    Serial.print(ypr[2] * 180 / M_PI);
+//    Serial.print("ypr\t");
+//    Serial.print(ypr[0] * 180 / M_PI);
+//    Serial.print("\t");
+//    Serial.print(ypr[1] * 180 / M_PI);
+//    Serial.print("\t");
+//    Serial.print(ypr[2] * 180 / M_PI);
   }
 
   // Check whether there is data to be received
@@ -173,37 +171,37 @@ void loop() {
     // For example: if a drone has a throttle up and we lose connection, it can keep flying until we reset the values
   }
   // Print the joystick data that is recieved in the Serial Monitor
-  Serial.print("; j1PotX: ");
-  Serial.print(data.j1PotX);
-  Serial.print("; j1PotY: ");
-  Serial.print(data.j1PotY);
-  Serial.print("; j2PotX: ");
-  Serial.print(data.j2PotX);
-  Serial.print("; j2PotY: ");
-  Serial.print(data.j2PotY);
-  Serial.print("; J1Button: ");
-  Serial.print(data.j1Button);
-  Serial.print("; J2Button: ");
-  Serial.print(data.j2Button);
-  Serial.println("");
+//  Serial.print("; j1PotX: ");
+//  Serial.print(data.j1PotX);
+//  Serial.print("; j1PotY: ");
+//  Serial.print(data.j1PotY);
+//  Serial.print("; j2PotX: ");
+//  Serial.print(data.j2PotX);
+//  Serial.print("; j2PotY: ");
+//  Serial.print(data.j2PotY);
+//  Serial.print("; J1Button: ");
+//  Serial.print(data.j1Button);
+//  Serial.print("; J2Button: ");
+//  Serial.print(data.j2Button);
+//  Serial.println("");
 
   // Adjust motor speed based on joystick input.
   // Analog is between 0-255 (which is also what the is being inputted into it from the data structure)
-  // For testing purposes, 1 axis controls the speed of 1 motor.
-  // Later on, changes will be made so that 1 axis controls the all motors in order to lift the quadcopter off the ground,
-  // another axis will decide to make the quadcopter go forwards or backwards and adjust motor speeds accordingly, etc.
+  // For testing purposes, 1 axis controls the all motor speeds.
+  // Later on, changes will be made so that another axis will decide to make the quadcopter 
+  //      go forwards or backwards and adjust motor speeds accordingly, etc.
   // MPU code will also be more intergrated into this in order to balance the quadcopter and also make sure it doesn't tilt too much, etc.
-  analogWrite(Motor1Pin, data.j1PotX);
+  analogWrite(Motor1Pin, data.j1PotY);
   analogWrite(Motor2Pin, data.j1PotY);
-  analogWrite(Motor3Pin, data.j2PotX);
-  analogWrite(Motor4Pin, data.j2PotY);
+  analogWrite(Motor3Pin, data.j1PotY);
+  analogWrite(Motor4Pin, data.j1PotY);
 }
 void resetData() {
   // Reset the values when there is no radio connection
-  data.j1PotX = 127;
-  data.j1PotY = 127;
-  data.j2PotX = 127;
-  data.j2PotY = 127;
+  data.j1PotX = 0;
+  data.j1PotY = 0;
+  data.j2PotX = 0;
+  data.j2PotY = 0;
   data.j1Button = 1;
   data.j2Button = 1;
 }
