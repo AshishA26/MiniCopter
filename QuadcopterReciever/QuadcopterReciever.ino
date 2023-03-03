@@ -195,6 +195,12 @@ void loop() {
   analogWrite(Motor2Pin, data.j1PotY);
   analogWrite(Motor3Pin, data.j1PotY);
   analogWrite(Motor4Pin, data.j1PotY);
+  
+  // If negative roll, lower speed of pin 3
+  // If postive roll, lower speed of pin 9
+  // If negative pitch, lower speed of pin 10
+  // If positive pitch, lower speed of pin 5
+  
 }
 void resetData() {
   // Reset the values when there is no radio connection
