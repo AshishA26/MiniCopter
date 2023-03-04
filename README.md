@@ -1,5 +1,5 @@
 # MiniCopter
-A mini quadcopter that is lightweight (~100g), and is designed for agility. It is made using an Arduino Nano, an MPU6050 for orientation sensing, an NRF24L01 for wireless communication, MOSFETs that act as motor drivers, and 8520 motors. The quadcopter is controlled using a custom transmitter that has 2 joysticks and an NRF24L01.
+A mini quadcopter that is lightweight (~100g) and designed for agility. It is made using an Arduino Nano, an MPU6050 for orientation sensing, an NRF24L01 for wireless communication, MOSFETs that act as motor drivers, and 8520 motors. The quadcopter is controlled using a custom transmitter that has 2 joysticks and an NRF24L01.
 
 Programmed in `Arduino IDE`, models created in `Autodesk Inventor`, schematics created in `KiCad`.
 
