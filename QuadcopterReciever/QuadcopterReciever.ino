@@ -1,3 +1,4 @@
+// By Ashish Agrahari
 // Code for circuitboard that is placed on the quadcopter (Arduino Nano) and is the "reciever"
 
 // Include libraries
@@ -58,6 +59,15 @@ volatile bool mpuInterrupt = false;     // indicates whether MPU interrupt pin h
 void dmpDataReady() {
   mpuInterrupt = true;
 }
+
+int target_angle = 0;
+int kp = 2;
+float error_R = 0;
+float angleChange_R = 0;
+float speedChange_R = 0;
+float error_P = 0;
+float angleChange_P = 0;
+float speedChange_P = 0;
 
 void setup() {
   Serial.begin(9600); // Open serial port
@@ -139,6 +149,7 @@ void setup() {
     Serial.println(F(")"));
   }
 }
+
 void loop() {
 
   // if MPU failed don't try to do anything
@@ -150,12 +161,12 @@ void loop() {
     mpu.dmpGetQuaternion(&q, fifoBuffer);
     mpu.dmpGetGravity(&gravity, &q);
     mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
-//    Serial.print("ypr\t");
-//    Serial.print(ypr[0] * 180 / M_PI);
-//    Serial.print("\t");
-//    Serial.print(ypr[1] * 180 / M_PI);
-//    Serial.print("\t");
-//    Serial.print(ypr[2] * 180 / M_PI);
+    //    Serial.print("ypr\t");
+    //    Serial.print(ypr[0] * 180 / M_PI);
+    //    Serial.print("\t");
+    //    Serial.print(ypr[1] * 180 / M_PI);
+    //    Serial.print("\t");
+    //    Serial.print(ypr[2] * 180 / M_PI);
   }
 
   // Check whether there is data to be received
@@ -171,36 +182,69 @@ void loop() {
     // For example: if a drone has a throttle up and we lose connection, it can keep flying until we reset the values
   }
   // Print the joystick data that is recieved in the Serial Monitor
-//  Serial.print("; j1PotX: ");
-//  Serial.print(data.j1PotX);
-//  Serial.print("; j1PotY: ");
-//  Serial.print(data.j1PotY);
-//  Serial.print("; j2PotX: ");
-//  Serial.print(data.j2PotX);
-//  Serial.print("; j2PotY: ");
-//  Serial.print(data.j2PotY);
-//  Serial.print("; J1Button: ");
-//  Serial.print(data.j1Button);
-//  Serial.print("; J2Button: ");
-//  Serial.print(data.j2Button);
-//  Serial.println("");
+  //  Serial.print("; j1PotX: ");
+  //  Serial.print(data.j1PotX);
+  //  Serial.print("; j1PotY: ");
+  //  Serial.print(data.j1PotY);
+  //  Serial.print("; j2PotX: ");
+  //  Serial.print(data.j2PotX);
+  //  Serial.print("; j2PotY: ");
+  //  Serial.print(data.j2PotY);
+  //  Serial.print("; J1Button: ");
+  //  Serial.print(data.j1Button);
+  //  Serial.print("; J2Button: ");
+  //  Serial.print(data.j2Button);
+  //  Serial.println("");
 
   // Adjust motor speed based on joystick input.
   // Analog is between 0-255 (which is also what the is being inputted into it from the data structure)
   // For testing purposes, 1 axis controls the all motor speeds.
-  // Later on, changes will be made so that another axis will decide to make the quadcopter 
+  // Later on, changes will be made so that another axis will decide to make the quadcopter
   //      go forwards or backwards and adjust motor speeds accordingly, etc.
   // MPU code will also be more intergrated into this in order to balance the quadcopter and also make sure it doesn't tilt too much, etc.
-  analogWrite(Motor1Pin, data.j1PotY);
-  analogWrite(Motor2Pin, data.j1PotY);
-  analogWrite(Motor3Pin, data.j1PotY);
-  analogWrite(Motor4Pin, data.j1PotY);
-  
-  // If negative roll, lower speed of pin 3
-  // If postive roll, lower speed of pin 9
-  // If negative pitch, lower speed of pin 10
-  // If positive pitch, lower speed of pin 5
-  
+  //  analogWrite(Motor1Pin, data.j1PotY);
+  //  analogWrite(Motor2Pin, data.j1PotY);
+  //  analogWrite(Motor3Pin, data.j1PotY);
+  //  analogWrite(Motor4Pin, data.j1PotY);
+
+  // If negative roll, lower speed of pin 3 (Motor1)
+  // If postive roll, lower speed of pin 9 (Motor3)
+  // If negative pitch, lower speed of pin 10 (Motor4)
+  // If positive pitch, lower speed of pin 5 (Motor2)
+
+  // Adjusting motor speed in order for quadcopter to balance
+  error_R = target_angle + ypr[2];
+  angleChange_R = kp * error_R;
+  speedChange_R = map(angleChange_R, -180, 180, -255 , 255);
+  if (speedChange_R < -1) {
+    analogWrite(Motor1Pin, data.j1PotY + speedChange_R);
+    analogWrite(Motor3Pin, data.j1PotY);
+  }
+  else if (speedChange_R > 1) {
+    analogWrite(Motor3Pin, data.j1PotY - speedChange_R);
+    analogWrite(Motor1Pin, data.j1PotY);
+  }
+  else {
+    analogWrite(Motor1Pin, data.j1PotY);
+    analogWrite(Motor3Pin, data.j1PotY);
+  }
+
+  error_P = target_angle + ypr[1];
+  angleChange_P = kp * error_P;
+  speedChange_P = map(angleChange_P, -180, 180, -255 , 255);
+  if (speedChange_P < -1) {
+    analogWrite(Motor4Pin, data.j1PotY + speedChange_P);
+    analogWrite(Motor2Pin, data.j1PotY);
+  }
+  else if (speedChange_P > 1) {
+    analogWrite(Motor2Pin, data.j1PotY - speedChange_P);
+    analogWrite(Motor4Pin, data.j1PotY);
+  }
+  else {
+    analogWrite(Motor2Pin, data.j1PotY);
+    analogWrite(Motor4Pin, data.j1PotY);
+  }
+
 }
 void resetData() {
   // Reset the values when there is no radio connection
