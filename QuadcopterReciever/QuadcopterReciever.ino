@@ -61,13 +61,18 @@ void dmpDataReady() {
 }
 
 int target_angle = 0;
-int kp = 2;
+int kp = 100;
 float error_R = 0;
 float angleChange_R = 0;
 float speedChange_R = 0;
 float error_P = 0;
 float angleChange_P = 0;
 float speedChange_P = 0;
+
+int motorSpeed1 = 0;
+int motorSpeed2 = 0;
+int motorSpeed3 = 0;
+int motorSpeed4 = 0;
 
 void setup() {
   Serial.begin(9600); // Open serial port
@@ -161,12 +166,13 @@ void loop() {
     mpu.dmpGetQuaternion(&q, fifoBuffer);
     mpu.dmpGetGravity(&gravity, &q);
     mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
-    //    Serial.print("ypr\t");
-    //    Serial.print(ypr[0] * 180 / M_PI);
-    //    Serial.print("\t");
-    //    Serial.print(ypr[1] * 180 / M_PI);
-    //    Serial.print("\t");
-    //    Serial.print(ypr[2] * 180 / M_PI);
+    Serial.print("ypr\t");
+    Serial.print(ypr[0] * 180 / M_PI);
+    Serial.print("\t");
+    Serial.print(ypr[1] * 180 / M_PI);
+    Serial.print("\t");
+    Serial.print(ypr[2] * 180 / M_PI);
+    Serial.print("\t");
   }
 
   // Check whether there is data to be received
@@ -182,19 +188,19 @@ void loop() {
     // For example: if a drone has a throttle up and we lose connection, it can keep flying until we reset the values
   }
   // Print the joystick data that is recieved in the Serial Monitor
-  //  Serial.print("; j1PotX: ");
-  //  Serial.print(data.j1PotX);
-  //  Serial.print("; j1PotY: ");
-  //  Serial.print(data.j1PotY);
-  //  Serial.print("; j2PotX: ");
-  //  Serial.print(data.j2PotX);
-  //  Serial.print("; j2PotY: ");
-  //  Serial.print(data.j2PotY);
-  //  Serial.print("; J1Button: ");
-  //  Serial.print(data.j1Button);
-  //  Serial.print("; J2Button: ");
-  //  Serial.print(data.j2Button);
-  //  Serial.println("");
+  //    Serial.print("; j1PotX: ");
+  //    Serial.print(data.j1PotX);
+  //    Serial.print("; j1PotY: ");
+  //    Serial.print(data.j1PotY);
+  //    Serial.print("; j2PotX: ");
+  //    Serial.print(data.j2PotX);
+  //    Serial.print("; j2PotY: ");
+  //    Serial.print(data.j2PotY);
+  //    Serial.print("; J1Button: ");
+  //    Serial.print(data.j1Button);
+  //    Serial.print("; J2Button: ");
+  //    Serial.print(data.j2Button);
+  //    Serial.println("");
 
   // Adjust motor speed based on joystick input.
   // Analog is between 0-255 (which is also what the is being inputted into it from the data structure)
@@ -219,15 +225,22 @@ void loop() {
   if (speedChange_R < -1) {
     analogWrite(Motor1Pin, data.j1PotY + speedChange_R);
     analogWrite(Motor3Pin, data.j1PotY);
+    motorSpeed1 = data.j1PotY + speedChange_R;
+    motorSpeed3 = data.j1PotY;
   }
   else if (speedChange_R > 1) {
     analogWrite(Motor3Pin, data.j1PotY - speedChange_R);
     analogWrite(Motor1Pin, data.j1PotY);
+    motorSpeed3 = data.j1PotY - speedChange_R;
+    motorSpeed1 = data.j1PotY;
   }
   else {
     analogWrite(Motor1Pin, data.j1PotY);
     analogWrite(Motor3Pin, data.j1PotY);
+    motorSpeed1 = data.j1PotY;
+    motorSpeed3 = data.j1PotY;
   }
+
 
   error_P = target_angle + ypr[1];
   angleChange_P = kp * error_P;
@@ -235,15 +248,30 @@ void loop() {
   if (speedChange_P < -1) {
     analogWrite(Motor4Pin, data.j1PotY + speedChange_P);
     analogWrite(Motor2Pin, data.j1PotY);
+    motorSpeed4 = data.j1PotY + speedChange_P;
+    motorSpeed2 = data.j1PotY;
+
   }
   else if (speedChange_P > 1) {
     analogWrite(Motor2Pin, data.j1PotY - speedChange_P);
     analogWrite(Motor4Pin, data.j1PotY);
+    motorSpeed2 = data.j1PotY - speedChange_P;
+    motorSpeed4 = data.j1PotY;
   }
   else {
     analogWrite(Motor2Pin, data.j1PotY);
     analogWrite(Motor4Pin, data.j1PotY);
+    motorSpeed2 = data.j1PotY;
+    motorSpeed4 = data.j1PotY;
   }
+
+  Serial.print(motorSpeed1);
+  Serial.print(", ");
+  Serial.print(motorSpeed2);
+  Serial.print(", ");
+  Serial.print(motorSpeed3);
+  Serial.print(", ");
+  Serial.println(motorSpeed4);
 
 }
 void resetData() {
