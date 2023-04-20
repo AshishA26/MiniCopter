@@ -1,4 +1,4 @@
-23196574765843914
+23199940273014050
 AA_Custom_Components
 AMS1117-3.3_LDO_Regulator_Breakout_Board
 Through hole straight socket strip, 1x03, 2.54mm pitch, single row (from Kicad 4.0.7), script generated
@@ -84,6 +84,13 @@ LED handsolder
 2
 2
 AA_Custom_Components
+MPU6050
+
+
+0
+8
+8
+AA_Custom_Components
 NRF24L01_Breakout
 
 
@@ -97,6 +104,13 @@ barrel polarity
 0
 0
 0
+AA_Custom_Components
+PowerPad_Pair_3.0x3.0mm
+SMD rectangular pad as solderable power pads, square 4.0mm side length each
+SMD pad rectangle square power
+0
+2
+2
 AA_Custom_Components
 PowerPad_Pair_4.0x4.0mm
 SMD rectangular pad as solderable power pads, square 4.0mm side length each
@@ -378,16 +392,16 @@ SPARKFUN FLAME LOGO - 0.4" HEIGHT - SILKSCREEN
 0
 0
 Aesthetics
-SFE_LOGO_FLAME_.5
-SPARKFUN FLAME LOGO - 0.5" HEIGHT - SILKSCREEN
-SPARKFUN FLAME LOGO - 0.5" HEIGHT - SILKSCREEN
+SFE_LOGO_FLAME_.05
+SPARKFUN FLAME LOGO - 0.05" HEIGHT - SILKSCREEN
+SPARKFUN FLAME LOGO - 0.05" HEIGHT - SILKSCREEN
 0
 0
 0
 Aesthetics
-SFE_LOGO_FLAME_.05
-SPARKFUN FLAME LOGO - 0.05" HEIGHT - SILKSCREEN
-SPARKFUN FLAME LOGO - 0.05" HEIGHT - SILKSCREEN
+SFE_LOGO_FLAME_.5
+SPARKFUN FLAME LOGO - 0.5" HEIGHT - SILKSCREEN
+SPARKFUN FLAME LOGO - 0.5" HEIGHT - SILKSCREEN
 0
 0
 0
