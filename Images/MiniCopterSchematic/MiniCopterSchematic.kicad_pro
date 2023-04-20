@@ -390,7 +390,11 @@
         "name": "Power",
         "nets": [
           "+BATT",
-          "GND"
+          "GND",
+          "Net-(M1-Pad2)",
+          "Net-(Q2-Pad1)",
+          "Net-(Q3-Pad1)",
+          "Net-(Q4-Pad1)"
         ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
