@@ -1,4 +1,4 @@
-23199940273014050
+23201622253660668
 AA_Custom_Components
 AMS1117-3.3_LDO_Regulator_Breakout_Board
 Through hole straight socket strip, 1x03, 2.54mm pitch, single row (from Kicad 4.0.7), script generated
@@ -6,6 +6,13 @@ Through hole socket strip THT 1x03 2.54mm single row
 0
 3
 3
+AA_Custom_Components
+Arduino_Nano
+Arduino Nano, http://www.mouser.com/pdfdocs/Gravitech_Arduino_Nano3_0.pdf
+Arduino Nano
+0
+30
+30
 AA_Custom_Components
 BarrelJack_Horizontal
 DC Barrel Jack
