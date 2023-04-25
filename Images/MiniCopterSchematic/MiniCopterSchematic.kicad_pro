@@ -392,7 +392,10 @@
           "+3V3",
           "+BATT",
           "GND",
-          "Net-(M1-Pad2)"
+          "Net-(M1-Pad2)",
+          "Net-(M2-Pad2)",
+          "Net-(M3-Pad2)",
+          "Net-(M4-Pad2)"
         ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
