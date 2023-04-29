@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name "MiniCopterSchematic")(type "KiCad")(uri "${KIPRJMOD}/MiniCopterSchematic.pretty")(options "")(descr ""))
+)
