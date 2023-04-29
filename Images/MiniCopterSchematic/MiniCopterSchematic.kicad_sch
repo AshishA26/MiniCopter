@@ -2205,7 +2205,7 @@
   (symbol (lib_id "RF:NRF24L01_Breakout") (at 149.86 82.55 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 552c74fa-1e18-46c0-a1b0-07a3fd1d445f)
-    (property "Reference" "N1" (id 0) (at 160.02 81.2799 0)
+    (property "Reference" "U3" (id 0) (at 160.02 81.2799 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "NRF24L01_Breakout" (id 1) (at 160.02 83.8199 0)
@@ -2357,7 +2357,7 @@
   (symbol (lib_name "MPU6050_IMU_1") (lib_id "AA_Custom_Components:MPU6050_IMU") (at 129.54 118.11 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 7cf07a00-d5ac-4c90-a3e7-3df1754b3724)
-    (property "Reference" "J1" (id 0) (at 128.27 104.14 0)
+    (property "Reference" "U2" (id 0) (at 128.27 104.14 0)
       (effects (font (size 1.143 1.143)))
     )
     (property "Value" "MPU6050" (id 1) (at 128.27 106.68 0)
@@ -2880,7 +2880,7 @@
   (symbol (lib_name "Arduino_Nano_Every_1") (lib_id "MCU_Module:Arduino_Nano_Every") (at 88.9 100.33 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid edd159c8-ec25-477b-95de-4da83d07fe0d)
-    (property "Reference" "A1" (id 0) (at 96.52 125.73 0)
+    (property "Reference" "U1" (id 0) (at 96.52 125.73 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "ARDUINO NANO" (id 1) (at 95.25 128.27 0)
@@ -3049,9 +3049,6 @@
     (path "/8256ecfb-03e3-43ce-9d13-91e9ec43236c"
       (reference "#PWR010") (unit 1) (value "+BATT_MOTORS") (footprint "")
     )
-    (path "/edd159c8-ec25-477b-95de-4da83d07fe0d"
-      (reference "A1") (unit 1) (value "ARDUINO NANO") (footprint "AA_Custom_Components:Arduino_Nano")
-    )
     (path "/524905b1-bfdd-4409-9708-e8d25f445608"
       (reference "C1") (unit 1) (value "47UF-CAPACITOR") (footprint "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm")
     )
@@ -3072,9 +3069,6 @@
     )
     (path "/9d900d38-a2c3-410e-803b-0eabd5854bf5"
       (reference "H4") (unit 1) (value "MountingHole") (footprint "MountingHole:MountingHole_3.2mm_M3_Pad")
-    )
-    (path "/7cf07a00-d5ac-4c90-a3e7-3df1754b3724"
-      (reference "J1") (unit 1) (value "MPU6050") (footprint "AA_Custom_Components:MPU6050")
     )
     (path "/297b4f3b-c98c-43b4-850a-e273375d03e8"
       (reference "JP1") (unit 1) (value "SolderJumper_1") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical")
@@ -3099,9 +3093,6 @@
     )
     (path "/713a0905-bafc-4427-a110-65adb5feba19"
       (reference "M4") (unit 1) (value "Motor_DC_4") (footprint "AA_Custom_Components:PowerPad_Pair_3.0x3.0mm")
-    )
-    (path "/552c74fa-1e18-46c0-a1b0-07a3fd1d445f"
-      (reference "N1") (unit 1) (value "NRF24L01_Breakout") (footprint "AA_Custom_Components:NRF24L01_Breakout")
     )
     (path "/075952fe-8e15-4d5e-bc3f-1b285719d921"
       (reference "Q1") (unit 1) (value "FQP20NO6L") (footprint "AA_Custom_Components:3Pin_MOSFET_MotorDriver")
@@ -3132,6 +3123,15 @@
     )
     (path "/c77084b7-68f1-43c4-9b50-f455124b0abe"
       (reference "R6") (unit 1) (value "100 Ω") (footprint "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+    )
+    (path "/edd159c8-ec25-477b-95de-4da83d07fe0d"
+      (reference "U1") (unit 1) (value "ARDUINO NANO") (footprint "AA_Custom_Components:Arduino_Nano")
+    )
+    (path "/7cf07a00-d5ac-4c90-a3e7-3df1754b3724"
+      (reference "U2") (unit 1) (value "MPU6050") (footprint "AA_Custom_Components:MPU6050")
+    )
+    (path "/552c74fa-1e18-46c0-a1b0-07a3fd1d445f"
+      (reference "U3") (unit 1) (value "NRF24L01_Breakout") (footprint "AA_Custom_Components:NRF24L01_Breakout")
     )
   )
 )
