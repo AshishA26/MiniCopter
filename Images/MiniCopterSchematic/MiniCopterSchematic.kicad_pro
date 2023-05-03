@@ -33,9 +33,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 3.2,
-          "height": 6.0,
-          "width": 6.0
+          "drill": 0.0,
+          "height": 5.0,
+          "width": 5.0
         },
         "silk_line_width": 0.15,
         "silk_text_italic": false,
@@ -391,7 +391,6 @@
         "microvia_drill": 0.1,
         "name": "5v",
         "nets": [
-          "+3V3",
           "+5V"
         ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
@@ -412,7 +411,6 @@
         "microvia_drill": 0.1,
         "name": "Power",
         "nets": [
-          "+BATT",
           "GND",
           "Net-(M1-Pad2)",
           "Net-(M2-Pad2)",

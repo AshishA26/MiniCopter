@@ -12,6 +12,266 @@
   )
 
   (lib_symbols
+    (symbol "+BATT_ARDUINO_1" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
+      (property "Reference" "#PWR" (id 0) (at 0 -3.81 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Value" "+BATT_ARDUINO_1" (id 1) (at 0 3.556 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "" (id 3) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_keywords" "global power" (id 4) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_description" "Power symbol creates a global label with name \"+3V3\"" (id 5) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "+BATT_ARDUINO_1_0_1"
+        (polyline
+          (pts
+            (xy -0.762 1.27)
+            (xy 0 2.54)
+          )
+          (stroke (width 0) (type default) (color 0 0 0 0))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 0 0)
+            (xy 0 2.54)
+          )
+          (stroke (width 0) (type default) (color 0 0 0 0))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 0 2.54)
+            (xy 0.762 1.27)
+          )
+          (stroke (width 0) (type default) (color 0 0 0 0))
+          (fill (type none))
+        )
+      )
+      (symbol "+BATT_ARDUINO_1_1_1"
+        (pin power_in line (at 0 0 90) (length 0) hide
+          (name "+BATT_ARDUINO" (effects (font (size 1.27 1.27))))
+          (number "1" (effects (font (size 1.27 1.27))))
+        )
+      )
+    )
+    (symbol "+BATT_MOTORS_1" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
+      (property "Reference" "#PWR" (id 0) (at 0 -3.81 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Value" "+BATT_MOTORS_1" (id 1) (at 0 3.556 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "" (id 3) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_keywords" "global power battery" (id 4) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_description" "Power symbol creates a global label with name \"+BATT\"" (id 5) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "+BATT_MOTORS_1_0_1"
+        (polyline
+          (pts
+            (xy -0.762 1.27)
+            (xy 0 2.54)
+          )
+          (stroke (width 0) (type default) (color 0 0 0 0))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 0 0)
+            (xy 0 2.54)
+          )
+          (stroke (width 0) (type default) (color 0 0 0 0))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 0 2.54)
+            (xy 0.762 1.27)
+          )
+          (stroke (width 0) (type default) (color 0 0 0 0))
+          (fill (type none))
+        )
+      )
+      (symbol "+BATT_MOTORS_1_1_1"
+        (pin power_in line (at 0 0 90) (length 0) hide
+          (name "+BATT_MOTORS" (effects (font (size 1.27 1.27))))
+          (number "1" (effects (font (size 1.27 1.27))))
+        )
+      )
+    )
+    (symbol "+BATT_MOTORS_2" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
+      (property "Reference" "#PWR" (id 0) (at 0 -3.81 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Value" "+BATT_MOTORS_2" (id 1) (at 0 3.556 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "" (id 3) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_keywords" "global power battery" (id 4) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_description" "Power symbol creates a global label with name \"+BATT\"" (id 5) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "+BATT_MOTORS_2_0_1"
+        (polyline
+          (pts
+            (xy -0.762 1.27)
+            (xy 0 2.54)
+          )
+          (stroke (width 0) (type default) (color 0 0 0 0))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 0 0)
+            (xy 0 2.54)
+          )
+          (stroke (width 0) (type default) (color 0 0 0 0))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 0 2.54)
+            (xy 0.762 1.27)
+          )
+          (stroke (width 0) (type default) (color 0 0 0 0))
+          (fill (type none))
+        )
+      )
+      (symbol "+BATT_MOTORS_2_1_1"
+        (pin power_in line (at 0 0 90) (length 0) hide
+          (name "+BATT_MOTORS" (effects (font (size 1.27 1.27))))
+          (number "1" (effects (font (size 1.27 1.27))))
+        )
+      )
+    )
+    (symbol "+BATT_MOTORS_3" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
+      (property "Reference" "#PWR" (id 0) (at 0 -3.81 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Value" "+BATT_MOTORS_3" (id 1) (at 0 3.556 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "" (id 3) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_keywords" "global power battery" (id 4) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_description" "Power symbol creates a global label with name \"+BATT\"" (id 5) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "+BATT_MOTORS_3_0_1"
+        (polyline
+          (pts
+            (xy -0.762 1.27)
+            (xy 0 2.54)
+          )
+          (stroke (width 0) (type default) (color 0 0 0 0))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 0 0)
+            (xy 0 2.54)
+          )
+          (stroke (width 0) (type default) (color 0 0 0 0))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 0 2.54)
+            (xy 0.762 1.27)
+          )
+          (stroke (width 0) (type default) (color 0 0 0 0))
+          (fill (type none))
+        )
+      )
+      (symbol "+BATT_MOTORS_3_1_1"
+        (pin power_in line (at 0 0 90) (length 0) hide
+          (name "+BATT_MOTORS" (effects (font (size 1.27 1.27))))
+          (number "1" (effects (font (size 1.27 1.27))))
+        )
+      )
+    )
+    (symbol "+BATT_MOTORS_4" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
+      (property "Reference" "#PWR" (id 0) (at 0 -3.81 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Value" "+BATT_MOTORS_4" (id 1) (at 0 3.556 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "" (id 3) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_keywords" "global power battery" (id 4) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_description" "Power symbol creates a global label with name \"+BATT\"" (id 5) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "+BATT_MOTORS_4_0_1"
+        (polyline
+          (pts
+            (xy -0.762 1.27)
+            (xy 0 2.54)
+          )
+          (stroke (width 0) (type default) (color 0 0 0 0))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 0 0)
+            (xy 0 2.54)
+          )
+          (stroke (width 0) (type default) (color 0 0 0 0))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 0 2.54)
+            (xy 0.762 1.27)
+          )
+          (stroke (width 0) (type default) (color 0 0 0 0))
+          (fill (type none))
+        )
+      )
+      (symbol "+BATT_MOTORS_4_1_1"
+        (pin power_in line (at 0 0 90) (length 0) hide
+          (name "+BATT_MOTORS" (effects (font (size 1.27 1.27))))
+          (number "1" (effects (font (size 1.27 1.27))))
+        )
+      )
+    )
     (symbol "AA_Custom_Components:+BATT_ARDUINO" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
       (property "Reference" "#PWR" (id 0) (at 0 -3.81 0)
         (effects (font (size 1.27 1.27)) hide)
@@ -59,7 +319,7 @@
       )
       (symbol "+BATT_ARDUINO_1_1"
         (pin power_in line (at 0 0 90) (length 0) hide
-          (name "+3V3" (effects (font (size 1.27 1.27))))
+          (name "+BATT_ARDUINO" (effects (font (size 1.27 1.27))))
           (number "1" (effects (font (size 1.27 1.27))))
         )
       )
@@ -111,7 +371,7 @@
       )
       (symbol "+BATT_MOTORS_1_1"
         (pin power_in line (at 0 0 90) (length 0) hide
-          (name "+BATT" (effects (font (size 1.27 1.27))))
+          (name "+BATT_MOTORS" (effects (font (size 1.27 1.27))))
           (number "1" (effects (font (size 1.27 1.27))))
         )
       )
@@ -1857,7 +2117,7 @@
     )
   )
 
-  (symbol (lib_id "AA_Custom_Components:+BATT_MOTORS") (at 237.49 33.02 0) (unit 1)
+  (symbol (lib_name "+BATT_MOTORS_2") (lib_id "AA_Custom_Components:+BATT_MOTORS") (at 237.49 33.02 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 02b2ea57-9dd5-4d15-9826-4c91090d4073)
     (property "Reference" "#PWR07" (id 0) (at 237.49 36.83 0)
@@ -1876,7 +2136,7 @@
   (symbol (lib_id "AA_Custom_Components:GND") (at 143.51 173.99 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 073bf10b-50c0-4651-946e-3a274e3104af)
-    (property "Reference" "#GND010" (id 0) (at 144.78 175.26 0)
+    (property "Reference" "#GND08" (id 0) (at 144.78 175.26 0)
       (effects (font (size 1.143 1.143)) (justify left bottom) hide)
     )
     (property "Value" "GND" (id 1) (at 141.224 180.34 0)
@@ -1927,7 +2187,7 @@
     (pin "1" (uuid c0025ade-cc03-43c6-b71d-ab32d4e629e2))
   )
 
-  (symbol (lib_id "AA_Custom_Components:+BATT_MOTORS") (at 237.49 99.06 0) (unit 1)
+  (symbol (lib_name "+BATT_MOTORS_3") (lib_id "AA_Custom_Components:+BATT_MOTORS") (at 237.49 99.06 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 1d438bbf-f8bf-497b-8172-fb5402b1664f)
     (property "Reference" "#PWR09" (id 0) (at 237.49 102.87 0)
@@ -2230,7 +2490,7 @@
   (symbol (lib_id "AA_Custom_Components:GND") (at 146.05 109.22 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 6d5d5132-1a78-4b19-839b-13f51792e79c)
-    (property "Reference" "#GND08" (id 0) (at 147.32 110.49 0)
+    (property "Reference" "#GND09" (id 0) (at 147.32 110.49 0)
       (effects (font (size 1.143 1.143)) (justify left bottom) hide)
     )
     (property "Value" "GND" (id 1) (at 143.764 115.57 0)
@@ -2323,7 +2583,7 @@
     (pin "8" (uuid 62aa0d89-b008-4d24-8458-78fdb2299ee0))
   )
 
-  (symbol (lib_id "AA_Custom_Components:+BATT_MOTORS") (at 237.49 133.35 0) (unit 1)
+  (symbol (lib_name "+BATT_MOTORS_1") (lib_id "AA_Custom_Components:+BATT_MOTORS") (at 237.49 133.35 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 8256ecfb-03e3-43ce-9d13-91e9ec43236c)
     (property "Reference" "#PWR010" (id 0) (at 237.49 137.16 0)
@@ -2363,10 +2623,10 @@
     (property "Reference" "D2" (id 0) (at 146.05 168.021 0)
       (effects (font (size 1.143 1.143)) (justify left))
     )
-    (property "Value" "LED_3MM" (id 1) (at 146.05 170.561 0)
+    (property "Value" "LED_5MM" (id 1) (at 146.05 170.561 0)
       (effects (font (size 1.143 1.143)) (justify left))
     )
-    (property "Footprint" "LED_THT:LED_D3.0mm" (id 2) (at 138.43 167.64 90)
+    (property "Footprint" "LED_THT:LED_D5.0mm" (id 2) (at 138.43 167.64 90)
       (effects (font (size 0.508 0.508)) hide)
     )
     (property "Datasheet" "" (id 3) (at 143.51 167.64 0)
@@ -2379,7 +2639,7 @@
     (pin "2" (uuid cb596d49-61aa-479c-9a0f-83c94fcb6e4c))
   )
 
-  (symbol (lib_id "AA_Custom_Components:+BATT_MOTORS") (at 237.49 66.04 0) (unit 1)
+  (symbol (lib_name "+BATT_MOTORS_4") (lib_id "AA_Custom_Components:+BATT_MOTORS") (at 237.49 66.04 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 88b85b08-7556-44a3-b24f-228140896097)
     (property "Reference" "#PWR08" (id 0) (at 237.49 69.85 0)
@@ -2468,7 +2728,7 @@
   (symbol (lib_id "AA_Custom_Components:GND") (at 149.86 96.52 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid a1aad778-8e72-40d8-8405-d736d21c3e07)
-    (property "Reference" "#GND09" (id 0) (at 151.13 97.79 0)
+    (property "Reference" "#GND010" (id 0) (at 151.13 97.79 0)
       (effects (font (size 1.143 1.143)) (justify left bottom) hide)
     )
     (property "Value" "GND" (id 1) (at 147.574 102.87 0)
@@ -2509,7 +2769,7 @@
     (property "Value" "LIPO 3.7V 680 mAH" (id 1) (at 73.66 160.02 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "AA_Custom_Components:PowerPad_Pair_5.0x5.0mm" (id 2) (at 69.85 159.766 90)
+    (property "Footprint" "AA_Custom_Components:PowerPad_Pair_5.0x5.0mm_1PadFlipped" (id 2) (at 69.85 159.766 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 69.85 159.766 90)
@@ -2535,7 +2795,7 @@
     (pin "1" (uuid 33bf389d-2e0e-4dff-876b-bc566741d320))
   )
 
-  (symbol (lib_id "AA_Custom_Components:+BATT_ARDUINO") (at 86.36 71.12 0) (unit 1)
+  (symbol (lib_name "+BATT_ARDUINO_1") (lib_id "AA_Custom_Components:+BATT_ARDUINO") (at 86.36 71.12 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid b4e68d78-ca2f-41a3-a8b1-deb4e3b53d18)
     (property "Reference" "#PWR03" (id 0) (at 86.36 74.93 0)
@@ -2737,7 +2997,7 @@
     (property "Value" "LED_3MM" (id 1) (at 119.38 170.561 0)
       (effects (font (size 1.143 1.143)) (justify left))
     )
-    (property "Footprint" "LED_THT:LED_D3.0mm" (id 2) (at 111.76 167.64 90)
+    (property "Footprint" "LED_THT:LED_D5.0mm" (id 2) (at 111.76 167.64 90)
       (effects (font (size 0.508 0.508)) hide)
     )
     (property "Datasheet" "" (id 3) (at 116.84 167.64 0)
@@ -2939,13 +3199,13 @@
     (path "/dff7b965-e722-4897-a214-9f0f3fe6e8be"
       (reference "#GND07") (unit 1) (value "GND") (footprint "XXX-00000")
     )
-    (path "/6d5d5132-1a78-4b19-839b-13f51792e79c"
+    (path "/073bf10b-50c0-4651-946e-3a274e3104af"
       (reference "#GND08") (unit 1) (value "GND") (footprint "XXX-00000")
     )
-    (path "/a1aad778-8e72-40d8-8405-d736d21c3e07"
+    (path "/6d5d5132-1a78-4b19-839b-13f51792e79c"
       (reference "#GND09") (unit 1) (value "GND") (footprint "XXX-00000")
     )
-    (path "/073bf10b-50c0-4651-946e-3a274e3104af"
+    (path "/a1aad778-8e72-40d8-8405-d736d21c3e07"
       (reference "#GND010") (unit 1) (value "GND") (footprint "XXX-00000")
     )
     (path "/9b18cc37-553f-444d-a33b-4eb6ec3f72fc"
@@ -2997,10 +3257,10 @@
       (reference "C1") (unit 1) (value "47UF-CAPACITOR") (footprint "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm")
     )
     (path "/dc4ca8a6-0559-43e6-bbdb-72df72c28d56"
-      (reference "D1") (unit 1) (value "LED_3MM") (footprint "LED_THT:LED_D3.0mm")
+      (reference "D1") (unit 1) (value "LED_3MM") (footprint "LED_THT:LED_D5.0mm")
     )
     (path "/87667d76-029d-4420-9eef-a3ffddcf99f1"
-      (reference "D2") (unit 1) (value "LED_3MM") (footprint "LED_THT:LED_D3.0mm")
+      (reference "D2") (unit 1) (value "LED_5MM") (footprint "LED_THT:LED_D5.0mm")
     )
     (path "/ac3fbe0c-87a2-45f4-91c1-950d582b1ab5"
       (reference "H1") (unit 1) (value "MountingHole") (footprint "MountingHole:MountingHole_3.2mm_M3_Pad")
@@ -3024,7 +3284,7 @@
       (reference "L1") (unit 1) (value "LIPO 3.7V 380 mAH") (footprint "AA_Custom_Components:PowerPad_Pair_5.0x5.0mm")
     )
     (path "/b1642376-8fd3-4e2a-b296-b52926ac07f1"
-      (reference "L2") (unit 1) (value "LIPO 3.7V 680 mAH") (footprint "AA_Custom_Components:PowerPad_Pair_5.0x5.0mm")
+      (reference "L2") (unit 1) (value "LIPO 3.7V 680 mAH") (footprint "AA_Custom_Components:PowerPad_Pair_5.0x5.0mm_1PadFlipped")
     )
     (path "/48e77bd8-73c0-47cd-be87-1ec6e081cdb3"
       (reference "M1") (unit 1) (value "Motor_DC_1") (footprint "AA_Custom_Components:PowerPad_Pair_3.0x3.0mm")
