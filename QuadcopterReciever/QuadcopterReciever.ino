@@ -213,26 +213,26 @@ void loop() {
   //  analogWrite(Motor3Pin, data.j1PotY);
   //  analogWrite(Motor4Pin, data.j1PotY);
 
-  // If negative roll, lower speed of pin 3 (Motor1)
-  // If postive roll, lower speed of pin 9 (Motor3)
-  // If negative pitch, lower speed of pin 10 (Motor4)
-  // If positive pitch, lower speed of pin 5 (Motor2)
+  // If negative roll, lower speed of pin 9 (Motor3)
+  // If postive roll, lower speed of pin 3 (Motor1)
+  // If negative pitch, lower speed of pin 5 (Motor2)
+  // If positive pitch, lower speed of pin 10 (Motor4)
 
   // Adjusting motor speed in order for quadcopter to balance
   error_R = target_angle + ypr[2];
   angleChange_R = kp * error_R;
   speedChange_R = map(angleChange_R, -180, 180, -255 , 255);
   if (speedChange_R < -1) {
-    analogWrite(Motor1Pin, data.j1PotY + speedChange_R);
-    analogWrite(Motor3Pin, data.j1PotY);
-    motorSpeed1 = data.j1PotY + speedChange_R;
-    motorSpeed3 = data.j1PotY;
+    analogWrite(Motor3Pin, data.j1PotY + speedChange_R);
+    analogWrite(Motor1Pin, data.j1PotY);
+    motorSpeed3 = data.j1PotY + speedChange_R;
+    motorSpeed1 = data.j1PotY;
   }
   else if (speedChange_R > 1) {
-    analogWrite(Motor3Pin, data.j1PotY - speedChange_R);
-    analogWrite(Motor1Pin, data.j1PotY);
-    motorSpeed3 = data.j1PotY - speedChange_R;
-    motorSpeed1 = data.j1PotY;
+    analogWrite(Motor1Pin, data.j1PotY - speedChange_R);
+    analogWrite(Motor3Pin, data.j1PotY);
+    motorSpeed1 = data.j1PotY - speedChange_R;
+    motorSpeed3 = data.j1PotY;
   }
   else {
     analogWrite(Motor1Pin, data.j1PotY);
@@ -246,17 +246,17 @@ void loop() {
   angleChange_P = kp * error_P;
   speedChange_P = map(angleChange_P, -180, 180, -255 , 255);
   if (speedChange_P < -1) {
-    analogWrite(Motor4Pin, data.j1PotY + speedChange_P);
-    analogWrite(Motor2Pin, data.j1PotY);
-    motorSpeed4 = data.j1PotY + speedChange_P;
-    motorSpeed2 = data.j1PotY;
+    analogWrite(Motor2Pin, data.j1PotY + speedChange_P);
+    analogWrite(Motor4Pin, data.j1PotY);
+    motorSpeed2 = data.j1PotY + speedChange_P;
+    motorSpeed4 = data.j1PotY;
 
   }
   else if (speedChange_P > 1) {
-    analogWrite(Motor2Pin, data.j1PotY - speedChange_P);
-    analogWrite(Motor4Pin, data.j1PotY);
-    motorSpeed2 = data.j1PotY - speedChange_P;
-    motorSpeed4 = data.j1PotY;
+    analogWrite(Motor4Pin, data.j1PotY - speedChange_P);
+    analogWrite(Motor2Pin, data.j1PotY);
+    motorSpeed4 = data.j1PotY - speedChange_P;
+    motorSpeed2 = data.j1PotY;
   }
   else {
     analogWrite(Motor2Pin, data.j1PotY);
