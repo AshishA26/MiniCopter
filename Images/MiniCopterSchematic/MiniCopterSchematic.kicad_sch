@@ -7,7 +7,7 @@
   (title_block
     (title "Mini-Copter")
     (date "2023-05-01")
-    (rev "v01")
+    (rev "v1.0")
     (comment 4 "By: Ashish Agrahari")
   )
 
@@ -2994,7 +2994,7 @@
     (property "Reference" "D1" (id 0) (at 119.38 168.021 0)
       (effects (font (size 1.143 1.143)) (justify left))
     )
-    (property "Value" "LED_3MM" (id 1) (at 119.38 170.561 0)
+    (property "Value" "LED_5MM" (id 1) (at 119.38 170.561 0)
       (effects (font (size 1.143 1.143)) (justify left))
     )
     (property "Footprint" "LED_THT:LED_D5.0mm" (id 2) (at 111.76 167.64 90)
@@ -3257,7 +3257,7 @@
       (reference "C1") (unit 1) (value "47UF-CAPACITOR") (footprint "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm")
     )
     (path "/dc4ca8a6-0559-43e6-bbdb-72df72c28d56"
-      (reference "D1") (unit 1) (value "LED_3MM") (footprint "LED_THT:LED_D5.0mm")
+      (reference "D1") (unit 1) (value "LED_5MM") (footprint "LED_THT:LED_D5.0mm")
     )
     (path "/87667d76-029d-4420-9eef-a3ffddcf99f1"
       (reference "D2") (unit 1) (value "LED_5MM") (footprint "LED_THT:LED_D5.0mm")

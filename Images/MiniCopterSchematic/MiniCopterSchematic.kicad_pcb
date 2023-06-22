@@ -8,7 +8,7 @@
   (title_block
     (title "MiniCopter PCB")
     (date "2023-05-01")
-    (rev "v01")
+    (rev "v1.0")
     (comment 4 "By: Ashish Agrahari")
   )
 
@@ -3376,7 +3376,7 @@
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 184c5e0f-1e3f-476b-9a86-54d228cce6c0)
     )
-    (fp_text value "LED_3MM" (at 1.27 3.96 180) (layer "F.Fab")
+    (fp_text value "LED_5MM" (at 1.27 3.96 180) (layer "F.Fab")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp a4c228d9-fe67-4f5a-b904-76ff07663c0c)
     )
