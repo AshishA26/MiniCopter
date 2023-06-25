@@ -11,6 +11,9 @@ Programmed in `Arduino IDE`, models created in `Autodesk Inventor`, schematics c
 ![CopterSchematic](./Schematics/MiniCopterSchematic/MiniCopterSchematic.svg)
 ![CopterSchematic](./Schematics/MiniCopterTransmitterSchematic/MiniCopterTransmitterSchematic.svg)
 
+### Setup
+- Install my [KiCAD libraries](https://github.com/AbhinavA10/kicad-libraries).
+
 ## Other Pictures
 Unassembled 3D-printed parts:
 ![CopterPic4](./Images/CopterPic4.jpg)
