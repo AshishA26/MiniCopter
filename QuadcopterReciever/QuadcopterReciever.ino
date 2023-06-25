@@ -38,7 +38,7 @@ MPU6050 mpu;
 
 #define INTERRUPT_PIN 2  // specific interrupt pin on Arduino nano every
 
-// MPU control/status vars
+// MPU control/status variables
 bool dmpReady = false;  // set true if DMP init was successful
 uint8_t mpuIntStatus;   // holds actual interrupt status byte from MPU
 uint8_t devStatus;      // return status after each device operation (0 = success, !0 = error)
@@ -46,7 +46,7 @@ uint16_t packetSize;    // expected DMP packet size (default is 42 bytes)
 uint16_t fifoCount;     // count of all bytes currently in FIFO
 uint8_t fifoBuffer[64]; // FIFO storage buffer
 
-// orientation/motion vars
+// MUP Orientation/motion variables
 Quaternion q;           // [w, x, y, z]         quaternion container
 VectorInt16 aa;         // [x, y, z]            accel sensor measurements
 VectorInt16 aaReal;     // [x, y, z]            gravity-free accel sensor measurements
@@ -60,8 +60,9 @@ void dmpDataReady() {
   mpuInterrupt = true;
 }
 
+// Create variables for PID control of motors
 int target_angle = 0;
-int kp = 100;
+int kp = 20;
 float error_R = 0;
 float angleChange_R = 0;
 float speedChange_R = 0;
@@ -162,7 +163,7 @@ void loop() {
 
   // read a packet from FIFO
   if (mpu.dmpGetCurrentFIFOPacket(fifoBuffer)) { // Get the Latest packet
-    // display Euler angles in degrees
+    // display Euler angles in degrees from MPU
     mpu.dmpGetQuaternion(&q, fifoBuffer);
     mpu.dmpGetGravity(&gravity, &q);
     mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
@@ -181,12 +182,12 @@ void loop() {
     radio.read(&data, sizeof(Data_Package));
     lastReceiveTime = millis();
   }
-  // Check whether we keep receving data, or we have a connection between the two modules
+  // Check whether we keep receving data, or we have lost connection between the two modules
   currentTime = millis();
   if ( currentTime - lastReceiveTime > 1000 ) { // If current time is >1 second since we have recived the last data, it has lost connection
     resetData(); // If connection is lost, reset the data. It prevents unwanted behavior.
-    // For example: if a drone has a throttle up and we lose connection, it can keep flying until we reset the values
   }
+  
   // Print the joystick data that is recieved in the Serial Monitor
   //    Serial.print("; j1PotX: ");
   //    Serial.print(data.j1PotX);
@@ -204,23 +205,18 @@ void loop() {
 
   // Adjust motor speed based on joystick input.
   // Analog is between 0-255 (which is also what the is being inputted into it from the data structure)
-  // For testing purposes, 1 axis controls the all motor speeds.
-  // Later on, changes will be made so that another axis will decide to make the quadcopter
-  //      go forwards or backwards and adjust motor speeds accordingly, etc.
-  // MPU code will also be more intergrated into this in order to balance the quadcopter and also make sure it doesn't tilt too much, etc.
-  //  analogWrite(Motor1Pin, data.j1PotY);
-  //  analogWrite(Motor2Pin, data.j1PotY);
-  //  analogWrite(Motor3Pin, data.j1PotY);
-  //  analogWrite(Motor4Pin, data.j1PotY);
+  // Currently 1 axis controls the all motor speeds.
 
   // If negative roll, lower speed of pin 9 (Motor3)
   // If postive roll, lower speed of pin 3 (Motor1)
   // If negative pitch, lower speed of pin 5 (Motor2)
   // If positive pitch, lower speed of pin 10 (Motor4)
 
-  // Adjusting motor speed in order for quadcopter to balance
+  // Adjusting motor speed based on tilt in order for quadcopter to balance - PID control
+
+  // For motors 1 and 3
   error_R = target_angle + ypr[2];
-  angleChange_R = kp * error_R;
+  angleChange_R = kp * error_R; // Use adjustment factor (k)
   speedChange_R = map(angleChange_R, -180, 180, -255 , 255);
   if (speedChange_R < -1) {
     analogWrite(Motor3Pin, data.j1PotY + speedChange_R);
@@ -241,7 +237,7 @@ void loop() {
     motorSpeed3 = data.j1PotY;
   }
 
-
+  // For motors 2 and 4
   error_P = target_angle + ypr[1];
   angleChange_P = kp * error_P;
   speedChange_P = map(angleChange_P, -180, 180, -255 , 255);
@@ -265,6 +261,7 @@ void loop() {
     motorSpeed4 = data.j1PotY;
   }
 
+  // Print motor speeds
   Serial.print(motorSpeed1);
   Serial.print(", ");
   Serial.print(motorSpeed2);
@@ -274,8 +271,9 @@ void loop() {
   Serial.println(motorSpeed4);
 
 }
+
+// Reset the values when there is no radio connection
 void resetData() {
-  // Reset the values when there is no radio connection
   data.j1PotX = 0;
   data.j1PotY = 0;
   data.j2PotX = 0;

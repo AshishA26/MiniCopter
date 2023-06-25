@@ -8,7 +8,8 @@ Programmed in `Arduino IDE`, models created in `Autodesk Inventor`, schematics c
 - More updates to come!
 
 ## Schematics
-![CopterSchematic](./Images/MiniCopterSchematic/MiniCopterSchematic.svg)
+![CopterSchematic](./Schematics/MiniCopterSchematic/MiniCopterSchematic.svg)
+![CopterSchematic](./Schematics/MiniCopterTransmitterSchematic/MiniCopterTransmitterSchematic.svg)
 
 ## Other Pictures
 Unassembled 3D-printed parts:

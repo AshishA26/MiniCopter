@@ -33,6 +33,7 @@ struct Data_Package {
 };
 Data_Package data; //Create a variable with the above structure
 
+// Created button to remotely turn on and off the motors of the quadcopter
 int buttonNew;
 int buttonOld = 1;
 
@@ -80,6 +81,7 @@ void setup() {
 }
 
 void loop() {
+  // Check if button has been pressed once, if so then allow the values of the joystick to be sent to quadcopter, else send the value "0"
   if (switchOnMotors == 1) {
     // Read all analog inputs and map them to one Byte value
     // Convert the analog read value from 0 to 1023 into a BYTE value from 0 to 255
