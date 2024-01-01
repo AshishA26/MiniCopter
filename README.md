@@ -51,4 +51,4 @@ To determine the strenght of each motor (how much each would be able to lift up)
 ![CopterPic13](./Images/Test1.jpg)
 
 ## Setup
-- Install my [KiCAD libraries](https://github.com/AbhinavA10/kicad-libraries).
+- To open the schematics and pcb, install my [KiCAD libraries](https://github.com/AbhinavA10/kicad-libraries).
