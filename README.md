@@ -6,9 +6,7 @@ Programmed in `Arduino IDE`, models created in `Autodesk Inventor`, schematics a
 ![CopterPic11](./Images/CopterPic11.jpg)
 ![CopterGif1](./Images/CopterGif1.gif)
 
-
-
-Demo showing the PID control of the quadcopter that allows for the quadcopter to stabilize and balance ([full video](https://www.youtube.com/watch?v=k4_8MwJ_Zw4)):
+Demo showing the tilt-based motor control of the quadcopter that allows for the quadcopter to stabilize and balance ([full video](https://www.youtube.com/watch?v=k4_8MwJ_Zw4)):
 ![CopterGif2](./Images/CopterGif2.gif)
 
 ## PCB Design
@@ -49,6 +47,7 @@ Checkout some [flight testing](https://www.youtube.com/watch?v=XLUD_ImCz4A).
 Checkout a demo of [the joystick wirelessly controlling a motor](https://www.youtube.com/watch?v=rh6yMr4QYGM).
 
 To determine the strenght of each motor (how much each would be able to lift up), I 3D printed some parts and flipped the motor upside down:
+
 ![CopterPic13](./Images/Test1.jpg)
 
 ## Setup
